@@ -9,7 +9,7 @@ Software Engineering, 7th semester - Semester Project: Scalable Systems
  
 As of now the data is taken from the SWITRS.sqlite and the collisions table is queried, then for each row of the local relational database is sent to the Kafka Broker with the key being case_id and the value being a json dump of the row with no meaning and reference to the column. 
 This aspect should either be fixed when producing data to the Kafka Broker or it could be prescribed when reading data from HDFS with Spark and then sending the data to MongoDB.
-Furthermore, currently we only have 
+Furthermore, we need to include all of the tables within the data set and perhaps create a topic for each of them inside of Kafka.
 
 ## Setting up MongoDB and Spark to read data from HDFS
 
