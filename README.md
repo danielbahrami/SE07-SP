@@ -6,6 +6,9 @@ Software Engineering, 7th semester - Semester Project: Scalable Systems
 # Currently
 We can write to Kafka and store the produced messages within HDFS by using `kafka-connect-sink to HDFS`.
 
+A general diagram of the current system is at: https://drive.google.com/file/d/1ElPVISdFzTpz0xd4Z1crDqeSyA9Lkf_f/view?usp=drive_link
+![image](https://github.com/danielbahrami/SE07-SP/assets/55737559/53894807-ccdb-49ad-ac30-fc2c7b17f39b)
+
 # Backlog
 
 ## Include More Tables from the data set and add the Column's names in the JSON data sent to Kafka Broker
