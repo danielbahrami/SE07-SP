@@ -17,6 +17,31 @@ As of now the data is taken from the SWITRS.sqlite and the collisions table is q
 This aspect should either be fixed when producing data to the Kafka Broker or it could be prescribed when reading data from HDFS with Spark and then sending the data to MongoDB.
 Furthermore, we need to include all of the tables within the data set and perhaps create a topic for each of them inside of Kafka.
 
+### Proposal
+Based on the query gotten from https://www.educative.io/answers/how-to-return-data-from-a-database-in-json-format-using-python
+```
+# Execute query for the entirity of the collisions table
+res = cursor.execute('SELECT * FROM COLLISIONS')
+
+#Returns a 7-tuple for each column
+collisionsColoumns = res.description()
+
+# Generate json object querry
+json_object_query = 'json_group_array('
+for column in collisionsColoumns:
+    json_object_query = json_object_query + "'" + column + "'" + "," + column + ","    
+
+json_object_query = json_object_query[:-1]
+json_object_query = json_object_query + "))"
+
+#
+for row in cur.execute(json_object_query)
+    #send msg to Kafka cluster via Kafka Proudcer
+
+# Then the same procedure follows with the other tables in other threads
+
+```
+
 ## Setting up MongoDB and Spark to read data from HDFS
 
 Currently, for our production environment at 21/11/2023, we only have STACKABLE, KAFKA, HDFS and UBUNTU pods/services running. As of now one can write data with the Ubuntu VM and it will be sent into Kafka Broker, then through the HDFS 2 Sink Connector the topics are supplied into HDFS.  
