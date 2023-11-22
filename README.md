@@ -17,7 +17,7 @@ As of now the data is taken from the SWITRS.sqlite and the collisions table is q
 This aspect should either be fixed when producing data to the Kafka Broker or it could be prescribed when reading data from HDFS with Spark and then sending the data to MongoDB.
 Furthermore, we need to include all of the tables within the data set and perhaps create a topic for each of them inside of Kafka.
 
-### Proposal
+### Proposal - Kasim
 Based on the query gotten from https://www.educative.io/answers/how-to-return-data-from-a-database-in-json-format-using-python
 ```
 # Execute query for the entirity of the collisions table
