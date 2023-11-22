@@ -20,11 +20,10 @@ Furthermore, we need to include all of the tables within the data set and perhap
 ### Proposal - Kasim
 Based on the query gotten from https://www.educative.io/answers/how-to-return-data-from-a-database-in-json-format-using-python
 ```
-# Execute query for the entirity of the collisions table
-res = cursor.execute('SELECT * FROM COLLISIONS')
 
-#Returns a 7-tuple for each column
-collisionsColoumns = res.description()
+# Execute query for the collisions table
+# Then returns a 7-tuple for each column
+collisionsColoumns = cursor.execute('SELECT * FROM COLLISIONS').description()
 
 # Generate json object querry
 json_object_query = 'json_group_array('
