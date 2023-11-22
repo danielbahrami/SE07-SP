@@ -48,6 +48,11 @@ for row in cur.execute(json_object_query)
 Currently, for our production environment at 21/11/2023, we only have STACKABLE, KAFKA, HDFS and UBUNTU pods/services running. As of now one can write data with the Ubuntu VM and it will be sent into Kafka Broker, then through the HDFS 2 Sink Connector the topics are supplied into HDFS.  
 Therefore, we need the last steps in reading from the HDFS with Spark and then supplying the data to MongoDB connected to our yet-to-be backend.
 
+### Proposal - Kasim 
+Mongodb and kafka connect is alot easier since there is official support. Hdfs and mongodb connector was deprecated in favour of apache Spark. 
+Therefore, why not just use kafka instead? 
+
+
 ## Setting up our Backend and Frontend
 
 We also need a backend and frontend, though setting up the database is properly more vital as of now.
