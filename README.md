@@ -34,11 +34,12 @@ for column in collisionsColoumns:
 json_object_query = json_object_query[:-1]
 json_object_query = json_object_query + "))"
 
-#
+# Iterate over each row and send to Kafka Cluster
 for row in cur.execute(json_object_query)
     #send msg to Kafka cluster via Kafka Proudcer
 
 # Then the same procedure follows with the other tables in other threads
+# Refrain from creating other Kafka Producer instances
 
 ```
 
