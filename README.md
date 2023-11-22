@@ -23,7 +23,7 @@ Based on the query gotten from https://www.educative.io/answers/how-to-return-da
 
 # Execute query for the collisions table
 # Then returns a 7-tuple for each column
-collisionsColoumns = cursor.execute('SELECT * FROM COLLISIONS').description()
+collisionsColoumns = cursor.execute('SELECT * FROM COLLISIONS').description
 
 # Generate json object querry
 json_object_query = 'json_group_array('
