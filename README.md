@@ -7,18 +7,30 @@ Software Engineering, 7th semester - Semester Project: Scalable Systems
 We can write to Kafka and store the produced messages within HDFS by using `kafka-connect-sink to HDFS`.
 
 A general diagram of the current system is at: https://drive.google.com/file/d/1ElPVISdFzTpz0xd4Z1crDqeSyA9Lkf_f/view?usp=drive_link
-![image](https://github.com/danielbahrami/SE07-SP/assets/55737559/39c5eca9-15d8-403b-a39d-e4d55dfd4f13)
+![image](https://github.com/danielbahrami/SE07-SP/assets/55737559/1bb79c70-46c6-4eac-8dec-ea59fae2ef91)
+
 
 # Backlog
 
+## Running Spark tasks to group both datasets together
+
+Right now we only have the single dataset, SWITRS, in our system. One of the major points of the project was combining two datasets together, therefore we need Spark for us 
+
+## Setting up our Backend and Frontend
+
+We also need a backend and frontend, the database is ready with the SWIRTS dataset so we can already start feeding it into the backend and then create some Data Visualization.
+
+# Outdated Backlog -23/11/2023-
+
 ## Include More Tables from the data set and add the Column's names in the JSON data sent to Kafka Broker - FIXED BY KASIM
- 
+
 As of now the data is taken from the SWITRS.sqlite and the collisions table is queried, then for each row of the local relational database is sent to the Kafka Broker with the key being case_id and the value being a json dump of the row with no meaning and reference to the column. 
 This aspect should either be fixed when producing data to the Kafka Broker or it could be prescribed when reading data from HDFS with Spark and then sending the data to MongoDB.
 Furthermore, we need to include all of the tables within the data set and perhaps create a topic for each of them inside of Kafka.
 
 ### Proposal - Kasim
-Using row_factory within the SQLITE3 libary in python for the cursor executions to return dicts instead of tuples, retraining the label and value by using json.dumps(dict(result)) 
+Using row_factory within the SQLITE3 libary in python for the cursor executions to return dicts instead of tuples, retraining the label and value by using json.dumps(dict(result)).
+You will also see in the Ubuntu pod that multi-threading has also been implemented.
 ```
 def kafkaProducer_send(query, topic):
     con = sqlite3.connect("/root/switrs.sqlite", check_same_thread=False)
@@ -42,10 +54,6 @@ Mongodb and kafka connect is alot easier since there is official support. Hdfs a
 Therefore, why not just use kafka instead?
 
 Currently, we now have HDFS sink connector and MongoDB sink connector
-
-## Setting up our Backend and Frontend
-
-We also need a backend and frontend, though setting up the database is properly more vital as of now.
 
 # Current Namespaces created
 
