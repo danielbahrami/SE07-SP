@@ -11,46 +11,37 @@ A general diagram of the current system is at: https://drive.google.com/file/d/1
 
 # Backlog
 
-## Include More Tables from the data set and add the Column's names in the JSON data sent to Kafka Broker
+## Include More Tables from the data set and add the Column's names in the JSON data sent to Kafka Broker - FIXED BY KASIM
  
 As of now the data is taken from the SWITRS.sqlite and the collisions table is queried, then for each row of the local relational database is sent to the Kafka Broker with the key being case_id and the value being a json dump of the row with no meaning and reference to the column. 
 This aspect should either be fixed when producing data to the Kafka Broker or it could be prescribed when reading data from HDFS with Spark and then sending the data to MongoDB.
 Furthermore, we need to include all of the tables within the data set and perhaps create a topic for each of them inside of Kafka.
 
 ### Proposal - Kasim
-Based on the query gotten from https://www.educative.io/answers/how-to-return-data-from-a-database-in-json-format-using-python
+Using row_factory within the SQLITE3 libary in python for the cursor executions to return dicts instead of tuples, retraining the label and value by using json.dumps(dict(result)) 
+```
+def kafkaProducer_send(query, topic):
+    con = sqlite3.connect("/root/switrs.sqlite", check_same_thread=False)
+    con.row_factory = sqlite3.Row
+    cur = con.cursor()
+    columns = cur.execute(query).description
+    columnID_name = columns[0][0]
+    for result in cur.execute(query):
+        row = dict(result)
+        id: str = row[columnID_name]
+        producer.send(topic, key=bytes(str(id), DEFAULT_ENCODING), value=bytes(json.dumps(dict(result)), DEFAULT_ENCODING))  
 ```
 
-# Execute query for the collisions table
-# Then returns a 7-tuple for each column
-collisionsColoumns = cursor.execute('SELECT * FROM COLLISIONS').description
-
-# Generate json object querry
-json_object_query = 'json_group_array('
-for column in collisionsColoumns:
-    json_object_query = json_object_query + "'" + column + "'" + "," + column + ","    
-
-json_object_query = json_object_query[:-1]
-json_object_query = json_object_query + "))"
-
-# Iterate over each row and send to Kafka Cluster
-for row in cur.execute(json_object_query)
-    #send msg to Kafka cluster via Kafka Proudcer
-
-# Then the same procedure follows with the other tables in other threads
-# Refrain from creating other Kafka Producer instances
-
-```
-
-## Setting up MongoDB and Spark to read data from HDFS
+## Setting up MongoDB and Spark to read data from HDFS - FIXED BY KASIM
 
 Currently, for our production environment at 21/11/2023, we only have STACKABLE, KAFKA, HDFS and UBUNTU pods/services running. As of now one can write data with the Ubuntu VM and it will be sent into Kafka Broker, then through the HDFS 2 Sink Connector the topics are supplied into HDFS.  
 Therefore, we need the last steps in reading from the HDFS with Spark and then supplying the data to MongoDB connected to our yet-to-be backend.
 
 ### Proposal - Kasim 
 Mongodb and kafka connect is alot easier since there is official support. Hdfs and mongodb connector was deprecated in favour of apache Spark. 
-Therefore, why not just use kafka instead? 
+Therefore, why not just use kafka instead?
 
+Currently, we now have HDFS sink connector and MongoDB sink connector
 
 ## Setting up our Backend and Frontend
 
