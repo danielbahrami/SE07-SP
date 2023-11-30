@@ -7,8 +7,7 @@ Software Engineering, 7th semester - Semester Project: Scalable Systems
 We can write to Kafka and store the produced messages within HDFS by using `kafka-connect-sink to HDFS`.
 
 A general diagram of the current system is at: https://drive.google.com/file/d/1ElPVISdFzTpz0xd4Z1crDqeSyA9Lkf_f/view?usp=drive_link
-![image](https://github.com/danielbahrami/SE07-SP/assets/55737559/1bb79c70-46c6-4eac-8dec-ea59fae2ef91)
-
+![image](https://github.com/danielbahrami/SE07-SP/assets/55737559/fba6c0d4-bfab-4444-adb4-46bfb5a85c2c)
 
 # Backlog
 
