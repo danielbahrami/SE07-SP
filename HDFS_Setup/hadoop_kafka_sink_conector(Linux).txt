@@ -8,7 +8,7 @@ http://127.0.0.1:8083/connectors \
     "config": {
         "connector.class": "io.confluent.connect.hdfs.HdfsSinkConnector",
         "tasks.max": "5",
-        "topics": "SWITRS_COLLISIONS",
+        "topics": "COMBINED_SWITRS_COLLISIONS, SWITRS_CASE_IDS,SWITRS_PARTIES,SWITRS_VICTIMS",
         "hdfs.url": "hdfs://simple-hdfs-namenode-default-0.storage:8020",
         "flush.size": "3",
         "format.class": "io.confluent.connect.hdfs.json.JsonFormat",
