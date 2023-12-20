@@ -19,7 +19,8 @@
 					rel="noreferrer"
 				>
 					Bar Charts
-			</svelte:fragment>
+				</a></svelte:fragment
+			>
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
