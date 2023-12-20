@@ -6,10 +6,10 @@ metadata:
     app: ubuntu
 spec:
   containers:
-  - image: ubuntu
-    command:
-      - sleep
-      - infinity
-    imagePullPolicy: IfNotPresent
-    name: ubuntu
+    - image: ubuntu
+      command:
+        - sleep
+        - infinity
+      imagePullPolicy: IfNotPresent
+      name: ubuntu
   restartPolicy: Always

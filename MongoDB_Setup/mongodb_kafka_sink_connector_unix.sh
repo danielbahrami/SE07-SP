@@ -24,7 +24,6 @@ http://127.0.0.1:8083/connectors \
     }
 }'
 
-
 curl -X POST \
 http://127.0.0.1:8083/connectors \
 -H 'Content-Type: application/json' \

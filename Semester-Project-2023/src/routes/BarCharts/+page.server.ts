@@ -6,7 +6,7 @@ import { SWITRS_PARTIES } from "$db/SWITRS_PARTIES"
 /** @type {import('./$types').PageServerLoad} */
 export const load: PageServerLoad = async () => {
 
-	const projection = {_id:0, vehicle_make:1}
+			const projection = {_id:0, vehicle_make:1}
 
 	//const vehicleOnly = await SWITRS_PARTIES.find({vehicle_make: {$not: {$eq: null}}}).project(projection).toArray()
 
@@ -42,4 +42,3 @@ export const load: PageServerLoad = async () => {
 	}
 
 }
-

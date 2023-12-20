@@ -1,13 +1,13 @@
 # Install Guide for MongoDB
 
-1. Create a namespace for mongodb
+Create a namespace for MongoDB
 
-`kubectl create namespace mongodb `
+`kubectl create namespace mongodb`
 
-2. Apply the YAML manifest file for mongodb
+Apply the YAML manifest file for MongoDB
 
 `kubectl apply -f mongodb.yaml`
 
-3. Get all the resources inside the `mongodb` namespace
+Get all the resources inside the `mongodb` namespace
 
 `kubectl port-forward svc/mongo-express  8084:8084 -n mongodb`
