@@ -1,5 +1,5 @@
 <script>
-	import imgSVG from '$lib/images/favicon.png';
+	import imgPNG from '$lib/images/favicon.png';
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -8,7 +8,7 @@
 		<!-- Animated Logo -->
 		<figure>
 			<section class="img-bg" />
-			<img src={imgSVG} alt="My Happy SVG" />
+			<img src={imgPNG} alt="My Happy SVG" />
 		</figure>
 		<!-- / -->
 		<div class="flex justify-center space-x-2">

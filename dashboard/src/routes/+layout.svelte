@@ -15,12 +15,20 @@
 				<a
 					class="btn btn-sm variant-ghost-surface"
 					href="/BarCharts"
-					target="_blank"
+					target="_self"
 					rel="noreferrer"
 				>
 					Bar Charts
-				</a></svelte:fragment
-			>
+				</a>
+				<a
+					class="btn btn-sm variant-ghost-surface"
+					href="/MapChart"
+					target="_self"
+					rel="noreferrer"
+				>
+					Map Chart
+				</a>
+			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
