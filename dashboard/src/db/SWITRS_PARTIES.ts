@@ -1,3 +1,3 @@
-import db from '$db/mongo'
+import db from '$db/mongo';
 
-export const SWITRS_PARTIES = db.collection('SWITRS_PARTIES')
+export const SWITRS_PARTIES = db.collection('SWITRS_PARTIES');

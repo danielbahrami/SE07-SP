@@ -19,14 +19,14 @@
 					rel="noreferrer"
 				>
 					Bar Charts
-				</a>	
+				</a>
 				<a
 					class="btn btn-sm variant-ghost-surface"
 					href="/MapChart"
 					target="_self"
 					rel="noreferrer"
 				>
-					Map Chart	
+					Map Chart
 				</a>
 			</svelte:fragment>
 		</AppBar>
